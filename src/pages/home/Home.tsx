@@ -16,7 +16,7 @@ export const Home = () => {
 	return (
 		<>
 			<Typography variant="h4" component="h1" className={classes.title}>
-				Welcome! <span role="image" aria-label="Hand waving 'hello'">👋</span>
+				Welcome! <span role="img" aria-label="Hand waving 'hello'">👋</span>
 			</Typography>
 			<Typography>Main content goes here.</Typography>
 			<Link href="google.com">Google link</Link>
