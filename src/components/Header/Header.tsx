@@ -6,7 +6,8 @@ import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 
-import {Menu as MenuIcon} from '@material-ui/icons'
+import { Menu as MenuIcon } from '@material-ui/icons'
+import { Hidden } from '@material-ui/core'
 
 export const HeaderStyles = makeStyles((theme: Theme) => ({
 	container: {
@@ -29,13 +30,21 @@ export const Header = (props: HeaderProps) => {
 
 	return (
 		<div className={classes.container}>
-			<AppBar position="static" color="default">
+			<AppBar position="static" color="transparent" elevation={0}>
 				<Toolbar>
-					<IconButton className={classes.menuButton} edge="start" color="inherit">
-						<MenuIcon />
-					</IconButton>
+					<Hidden smUp>
+						<IconButton className={classes.menuButton} edge="start" color="inherit" aria-label="Open menu">
+							<MenuIcon />
+						</IconButton>
+					</Hidden>
+
 					<Typography className={classes.title}>{props.children}</Typography>
-					<Button color="inherit">Test</Button>
+
+					<Hidden xsDown>
+						<Button color="inherit" href="/blog">Blog</Button>
+						<Button color="inherit" href="/projects">Projects</Button>
+						<Button color="inherit" href="/contact">Contact</Button>
+					</Hidden>
 				</Toolbar>
 			</AppBar>
 		</div>
