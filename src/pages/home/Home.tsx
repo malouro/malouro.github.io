@@ -5,7 +5,6 @@ import { Link, makeStyles } from '@material-ui/core'
 
 export const HomeStyles = makeStyles(theme => ({
 	title: {
-		// textAlign: 'center',
 		marginBottom: theme.spacing(4)
 	}
 }))
