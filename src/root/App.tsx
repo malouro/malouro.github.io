@@ -14,7 +14,7 @@ function App() {
 			<CssBaseline />
 			<SkipLink />
 			<Header>
-				<Typography>Michael A. Louro</Typography>
+				<Typography>Mike A. Louro</Typography>
 			</Header>
 			<Router>
 				<MainContent id="main" tabIndex={-1} />

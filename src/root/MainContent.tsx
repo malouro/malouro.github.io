@@ -1,6 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router'
-import { makeStyles } from '@material-ui/core/styles'
+import clsx from 'clsx'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 import Paper from '@material-ui/core/Paper'
 import { Home } from '../pages'
@@ -8,11 +10,20 @@ import { Home } from '../pages'
 export const MainContentStyles = makeStyles((theme) => ({
 	container: {
 		backgroundColor: theme.palette.background.paper,
-		margin: theme.spacing(3, 2, 0, 2),
+		maxWidth: 750,
+		position: 'relative',
+		marginTop: theme.spacing(-4),
+		marginBottom: theme.spacing(3),
+		margin: '0 auto',
+		padding: theme.spacing(4, 6, 3, 6),
+		borderRadius: theme.shape.borderRadius
+	},
+	containerSm: {
+		maxWidth: 'auto',
+		borderRadius: 0
 	},
 	content: {
-		margin: theme.spacing(2),
-		padding: theme.spacing(2)
+		padding: theme.spacing(3)
 	}
 }))
 
@@ -22,11 +33,13 @@ export interface MainContentProps {
 }
 
 export const MainContent = (props: MainContentProps) => {
+	const theme = useTheme()
 	const classes = MainContentStyles()
+	const smallView = useMediaQuery(theme.breakpoints.down('xs'))
 
 	return (
 		<main {...props}>
-			<Paper className={classes.container}>
+			<Paper className={clsx(classes.container, smallView && classes.containerSm)}>
 				<div className={classes.content}>
 					<Route path="/" component={Home} />
 				</div>
