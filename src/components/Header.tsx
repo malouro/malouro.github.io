@@ -82,15 +82,15 @@ export const Header = () => {
 					) : (
 						// Desktop view
 						<>
-						{menuOptions.map(option => (
-							<Button
-								key={`MenuOption-${option}`}
-								color="inherit"
-								href={`/${option.toLocaleLowerCase()}`}
-							>
-								{option}
-							</Button>
-						))}
+							{menuOptions.map(option => (
+								<Button
+									key={`MenuOption-${option}`}
+									color="inherit"
+									href={`/${option.toLocaleLowerCase()}`}
+								>
+									{option}
+								</Button>
+							))}
 						</>
 					)}
 				</Toolbar>

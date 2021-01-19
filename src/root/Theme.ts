@@ -1,6 +1,6 @@
 import { createMuiTheme, darken } from '@material-ui/core/styles'
-import { indigo, cyan, lightBlue } from '@material-ui/core/colors'
-import { images } from './bg.json'
+import { indigo, lightBlue } from '@material-ui/core/colors'
+// import { images } from './bg.json'
 
 export const CommonFocusStyle = {
 	outline: `4px solid ${lightBlue[300]}`,
