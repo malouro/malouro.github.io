@@ -4,6 +4,7 @@ import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 
 export const SkipLinkStyles = makeStyles((theme) => createStyles({
+	container: {},
 	skipLink: {
 		left: '-999px',
 		position: 'absolute',
@@ -12,16 +13,17 @@ export const SkipLinkStyles = makeStyles((theme) => createStyles({
 		height: 1,
 		overflow: 'hidden',
 		zIndex: -999,
+
+		color: theme.palette.getContrastText(theme.palette.primary.main),
+		backgroundColor: theme.palette.background.default,
+		fontSize: theme.typography.button.fontSize,
+
 		'&:focus': {
-			color: theme.palette.getContrastText(theme.palette.primary.main),
-			backgroundColor: theme.palette.primary.main,
 			left: 'auto',
 			width: 'auto',
 			height: 'auto',
 			overflow: 'auto',
-			padding: 5,
-			textAlign: 'center',
-			fontSize: theme.typography.body1.fontSize,
+			padding: theme.spacing(1, 2),
 			zIndex: 999,
 			...theme.palette.focusBorder
 		}
@@ -32,8 +34,10 @@ export const SkipLink = () => {
 	const classes = SkipLinkStyles()
 
 	return (
-		<Link className={classes.skipLink} href="#main">
-			<Typography>Skip to main content</Typography>
-		</Link>
+		<div className={classes.container}>
+			<Link className={classes.skipLink} href="#main">
+				<Typography color="inherit">Skip to main content</Typography>
+			</Link>
+		</div>
 	)
 }

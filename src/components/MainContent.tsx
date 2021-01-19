@@ -1,16 +1,18 @@
 import React from 'react'
 import { Route } from 'react-router'
 import clsx from 'clsx'
+
 import { makeStyles, useTheme } from '@material-ui/core/styles'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-
 import Paper from '@material-ui/core/Paper'
+
 import { Home } from '../pages'
 
 export const MainContentStyles = makeStyles((theme) => ({
 	container: {
-		backgroundColor: theme.palette.background.paper,
-		maxWidth: 750,
+		backgroundColor: 'transparent',
+		outline: `2px dotted ${theme.palette.secondary.main}`,
+		width: '100%',
 		position: 'relative',
 		marginTop: theme.spacing(-4),
 		marginBottom: theme.spacing(3),
@@ -20,7 +22,8 @@ export const MainContentStyles = makeStyles((theme) => ({
 	},
 	containerSm: {
 		maxWidth: 'auto',
-		borderRadius: 0
+		borderRadius: 0,
+		padding: theme.spacing(4, 0, 3, 0)
 	},
 	content: {
 		padding: theme.spacing(3)
