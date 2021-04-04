@@ -1,12 +1,12 @@
+import { CSSProperties } from 'react'
 import { createMuiTheme, darken } from '@material-ui/core/styles'
-import { indigo, lightBlue } from '@material-ui/core/colors'
-// import { images } from './bg.json'
+import { grey, indigo, lightBlue } from '@material-ui/core/colors'
 
-export const CommonFocusStyle = {
-	outline: `4px solid ${lightBlue[300]}`,
+export const CommonFocusStyle: CSSProperties = {
+	outline: `4px solid ${lightBlue[300]}`
 }
 
-export const DisableFocusStyle = {
+export const DisableFocusStyle: CSSProperties = {
 	outline: 'none'
 }
 
@@ -16,15 +16,15 @@ export const MyTheme = createMuiTheme({
 		/** @ref https://www.w3.org/TR/WCAG21/#contrast-minimum */
 		contrastThreshold: 4.5,
 		background: {
-			default: '#111',
-			paper: darken(indigo[900], 0.5),
+			default: darken(indigo[900], 0.5),
+			paper: grey[900]
 		},
-		focusBorder: CommonFocusStyle,
+		focus: CommonFocusStyle,
 		primary: {
-			main: indigo[500]
+			main: lightBlue[300]
 		},
 		secondary: {
-			main: lightBlue[300]
+			main: indigo[500]
 		}
 	},
 	typography: {
@@ -35,14 +35,12 @@ export const MyTheme = createMuiTheme({
 		].join(',')
 	},
 	shape: {
-		borderRadius: 10
+		borderRadius: 0
 	},
 	overrides: {
 		MuiCssBaseline: {
 			'@global': {
-				body: {
-					// backgroundImage: images[0]
-				},
+				body: {},
 				':focus': DisableFocusStyle
 			}
 		},
@@ -58,6 +56,11 @@ export const MyTheme = createMuiTheme({
 				'&:hover': {
 					textDecorationThickness: '5px',
 				}
+			}
+		},
+		MuiCard: {
+			root: {
+				backgroundColor: 'transparent'
 			}
 		}
 	},

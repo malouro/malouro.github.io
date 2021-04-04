@@ -1,9 +1,9 @@
 import React from 'react'
-import { makeStyles, createStyles } from '@material-ui/core/styles'
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 
-export const SkipLinkStyles = makeStyles((theme) => createStyles({
+export const SkipLinkStyles = makeStyles((theme: Theme) => createStyles({
 	container: {},
 	skipLink: {
 		left: '-999px',
@@ -14,7 +14,7 @@ export const SkipLinkStyles = makeStyles((theme) => createStyles({
 		overflow: 'hidden',
 		zIndex: -999,
 
-		color: theme.palette.getContrastText(theme.palette.primary.main),
+		color: theme.palette.getContrastText(theme.palette.background.default),
 		backgroundColor: theme.palette.background.default,
 		fontSize: theme.typography.button.fontSize,
 
@@ -25,7 +25,7 @@ export const SkipLinkStyles = makeStyles((theme) => createStyles({
 			overflow: 'auto',
 			padding: theme.spacing(1, 2),
 			zIndex: 999,
-			...theme.palette.focusBorder
+			...theme.palette.focus
 		}
 	}
 }))

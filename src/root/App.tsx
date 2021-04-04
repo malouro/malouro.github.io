@@ -8,16 +8,14 @@ import { MyTheme } from './Theme'
 
 function App() {
 	return (
-		<div id="root">
-			<ThemeProvider theme={MyTheme}>
-				<CssBaseline />
-				<SkipLink />
-				<Header />
-				<Router>
-					<MainContent id="main" tabIndex={-1} />
-				</Router>
-			</ThemeProvider>
-		</div>
+		<ThemeProvider theme={MyTheme}>
+			<CssBaseline />
+			<SkipLink />
+			<Header />
+			<Router>
+				<MainContent id="main" tabIndex={-1} />
+			</Router>
+		</ThemeProvider>
 	)
 }
 

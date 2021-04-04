@@ -15,8 +15,10 @@ export const HomeStyles = makeStyles((theme: Theme) => ({
 	avatar: {
 		width: theme.spacing(30),
 		height: theme.spacing(30),
+		backgroundColor: theme.palette.primary.main,
 		textAlign: 'center',
-		margin: 'auto'
+		margin: 'auto',
+		marginBottom: theme.spacing(5)
 	}
 }))
 

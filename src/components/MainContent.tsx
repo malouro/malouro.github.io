@@ -2,16 +2,14 @@ import React from 'react'
 import { Route } from 'react-router'
 import clsx from 'clsx'
 
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import useMediaQuery from '@material-ui/core/useMediaQuery'
-import Paper from '@material-ui/core/Paper'
+import { Box, useMediaQuery } from '@material-ui/core'
+import { makeStyles, Theme, useTheme } from '@material-ui/core/styles'
+import { Home, Projects } from '../pages'
 
-import { Home } from '../pages'
-
-export const MainContentStyles = makeStyles((theme) => ({
+export const MainContentStyles = makeStyles((theme: Theme) => ({
 	container: {
 		backgroundColor: 'transparent',
-		outline: `2px dotted ${theme.palette.secondary.main}`,
+		outline: `2px dotted ${theme.palette.primary.main}`,
 		width: '100%',
 		position: 'relative',
 		marginTop: theme.spacing(-4),
@@ -42,11 +40,12 @@ export const MainContent = (props: MainContentProps) => {
 
 	return (
 		<main {...props}>
-			<Paper className={clsx(classes.container, smallView && classes.containerSm)}>
+			<Box className={clsx(classes.container, smallView && classes.containerSm)}>
 				<div className={classes.content}>
-					<Route path="/" component={Home} />
+					<Route path="/" exact component={Home} />
+					<Route path="/projects" component={Projects} />
 				</div>
-			</Paper>
+			</Box>
 		</main>
 	)
 }

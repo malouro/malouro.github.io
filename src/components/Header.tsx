@@ -16,7 +16,7 @@ export const HeaderStyles = makeStyles((theme: Theme) => ({
 		position: 'relative',
 		height: theme.spacing(20),
 		overflow: 'hidden',
-		color: theme.palette.getContrastText(theme.palette.primary.main)
+		color: theme.palette.getContrastText(theme.palette.secondary.dark)
 	},
 	headerBg: {
 		position: 'absolute',
@@ -27,7 +27,7 @@ export const HeaderStyles = makeStyles((theme: Theme) => ({
 		width: '100%',
 		height: '100%',
 		backgroundImage:
-			`linear-gradient(${darken(theme.palette.primary.dark, 0.5)}, ${theme.palette.background.default})`
+			`linear-gradient(${darken(theme.palette.secondary.dark, 0.5)}, ${theme.palette.background.default})`
 	},
 	gutter: {
 		flexGrow: 1
@@ -43,7 +43,7 @@ export const Header = () => {
 	const handleClick = (event: any) => { setAnchorEl(event.currentTarget) }
 	const handleClose = () => { setAnchorEl(null) }
 
-	const menuOptions = ['Blog', 'Projects', 'Contact']
+	const menuOptions = ['About', 'Projects', 'Art', 'Blog']
 
 	return (
 		<header className={classes.container}>
