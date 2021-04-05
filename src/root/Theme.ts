@@ -2,11 +2,17 @@ import { CSSProperties } from 'react'
 import { createMuiTheme, darken } from '@material-ui/core/styles'
 import { grey, indigo, lightBlue } from '@material-ui/core/colors'
 
-export const CommonFocusStyle: CSSProperties = {
-	outline: `4px solid ${lightBlue[300]}`
+
+const Palette = {
+	primary: lightBlue[300],
+	secondary: indigo[500]
 }
 
-export const DisableFocusStyle: CSSProperties = {
+const CommonFocusStyle: CSSProperties = {
+	outline: `4px solid ${Palette.primary}`
+}
+
+const DisableBrowserFocusStyle: CSSProperties = {
 	outline: 'none'
 }
 
@@ -21,17 +27,17 @@ export const MyTheme = createMuiTheme({
 		},
 		focus: CommonFocusStyle,
 		primary: {
-			main: lightBlue[300]
+			main: Palette.primary
 		},
 		secondary: {
-			main: indigo[500]
+			main: Palette.secondary
 		}
 	},
 	typography: {
 		fontFamily: [
-			'Montserrat',
-			'Helvetica Neue',
-			'\'sans-serif\''
+			'Roboto',
+			'\'Helvetica Neue\'',
+			'sans-serif'
 		].join(',')
 	},
 	shape: {
@@ -40,8 +46,13 @@ export const MyTheme = createMuiTheme({
 	overrides: {
 		MuiCssBaseline: {
 			'@global': {
-				body: {},
-				':focus': DisableFocusStyle
+				body: {
+					'& code': {
+						color: Palette.primary,
+						fontWeight: 600
+					},
+				},
+				':focus': DisableBrowserFocusStyle
 			}
 		},
 		MuiButtonBase: {

@@ -31,10 +31,8 @@ const ProjectCardStyles = (theme: typeof MyTheme) => ({
 		minWidth: theme.spacing(40),
 		marginBottom: theme.spacing(4),
 		display: 'flex',
-		boxShadow: (props: ProjectCardProps) => ([
-			`inset 0 -${props.outlineThickness}px 0 ${theme.palette.primary.main}`,
+		boxShadow: (props: ProjectCardProps) =>
 			`inset -${props.outlineThickness}px 0 ${theme.palette.primary.main}`
-		].join(','))
 	},
 	thumbnail: {
 		[theme.breakpoints.down('sm')]: {
@@ -45,7 +43,14 @@ const ProjectCardStyles = (theme: typeof MyTheme) => ({
 			height: theme.spacing(40),
 			paddingLeft: theme.spacing(40),
 		},
-		margin: theme.spacing(4)
+		margin: theme.spacing(4),
+		filter: `drop-shadow(${
+			theme.spacing(1)
+		}px ${
+			theme.spacing(1)
+		}px 3px ${
+			theme.palette.common.black
+		})`
 	},
 	content: {
 		marginLeft: theme.spacing(2)
@@ -55,6 +60,8 @@ const ProjectCardStyles = (theme: typeof MyTheme) => ({
 const ProjectCard: React.FC<ProjectCardProps> = (props: ProjectCardProps): JSX.Element => {
 	const { classes, data, ...other } = props
 	const { title, subtitle, description, thumbnail } = data
+
+	delete other.outlineThickness
 
 	return (
 		<Card className={classes.root} {...other}>
