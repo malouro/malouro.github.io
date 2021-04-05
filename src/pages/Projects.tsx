@@ -4,28 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import { MyTheme } from '../root/Theme'
 import { ProjectCard } from '../components'
-import { ProjectData } from '../components/ProjectCard'
+import { Projects } from '../data'
 
-const projects : Array<ProjectData> = [
-	{
-		title: 'Project A',
-		description: <>
-			<Typography>This is a project. It&apos;s cool. :)</Typography>
-			<Typography>This is a project. It&apos;s cool. :)</Typography>
-			<Typography>This is a project. It&apos;s cool. :)</Typography>
-			<Typography>This is a project. It&apos;s cool. :)</Typography>
-			<Typography>This is a project. It&apos;s cool. :)</Typography>
-			<Typography>This is a project. It&apos;s cool. :)</Typography>
-		</>,
-		thumbnail: `${process.env.PUBLIC_URL}/assets/images/food-1.jpg`
-	},
-	{
-		title: 'Project B',
-		description: 'This is another project. Maybe not as cool. :('
-	}
-]
-
-export const Projects = () => {
+export default function ProjectsPage() {
 	const useStyles = makeStyles((theme: typeof MyTheme) => ({
 		pageTitle: {
 			marginBottom: theme.spacing(5)
@@ -41,7 +22,7 @@ export const Projects = () => {
 			>
 				Projects
 			</Typography>
-			{projects.map((projectData, i) =>
+			{Projects.map((projectData, i) =>
 				<ProjectCard key={i} data={projectData} />
 			)}
 		</>

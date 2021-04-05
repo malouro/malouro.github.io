@@ -45,6 +45,7 @@ const ProjectCardStyles = (theme: typeof MyTheme) => ({
 			height: theme.spacing(40),
 			paddingLeft: theme.spacing(40),
 		},
+		margin: theme.spacing(4)
 	},
 	content: {
 		marginLeft: theme.spacing(2)

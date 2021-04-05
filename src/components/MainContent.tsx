@@ -6,7 +6,7 @@ import { Box, useMediaQuery } from '@material-ui/core'
 import { makeStyles, Theme, useTheme } from '@material-ui/core/styles'
 import { Home, Projects } from '../pages'
 
-export const MainContentStyles = makeStyles((theme: Theme) => ({
+const MainContentStyles = makeStyles((theme: Theme) => ({
 	container: {
 		backgroundColor: 'transparent',
 		outline: `2px dotted ${theme.palette.primary.main}`,

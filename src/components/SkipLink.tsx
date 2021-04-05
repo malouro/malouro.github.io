@@ -3,7 +3,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 import Link from '@material-ui/core/Link'
 import Typography from '@material-ui/core/Typography'
 
-export const SkipLinkStyles = makeStyles((theme: Theme) => createStyles({
+const SkipLinkStyles = makeStyles((theme: Theme) => createStyles({
 	container: {},
 	skipLink: {
 		left: '-999px',

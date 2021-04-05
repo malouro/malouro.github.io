@@ -11,7 +11,7 @@ import {
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { Menu as MenuIcon, HomeOutlined as HomeIcon } from '@material-ui/icons'
 
-export const HeaderStyles = makeStyles((theme: Theme) => ({
+const HeaderStyles = makeStyles((theme: Theme) => ({
 	container: {
 		position: 'relative',
 		height: theme.spacing(20),
