@@ -1,12 +1,18 @@
+import { CSSProperties } from 'react'
 import { createMuiTheme, darken } from '@material-ui/core/styles'
-import { indigo, lightBlue } from '@material-ui/core/colors'
-// import { images } from './bg.json'
+import { grey, indigo, lightBlue } from '@material-ui/core/colors'
 
-export const CommonFocusStyle = {
-	outline: `4px solid ${lightBlue[300]}`,
+
+const Palette = {
+	primary: lightBlue[300],
+	secondary: indigo[500]
 }
 
-export const DisableFocusStyle = {
+const CommonFocusStyle: CSSProperties = {
+	outline: `4px solid ${Palette.primary}`
+}
+
+const DisableBrowserFocusStyle: CSSProperties = {
 	outline: 'none'
 }
 
@@ -16,34 +22,41 @@ export const MyTheme = createMuiTheme({
 		/** @ref https://www.w3.org/TR/WCAG21/#contrast-minimum */
 		contrastThreshold: 4.5,
 		background: {
-			default: '#111',
-			paper: darken(indigo[900], 0.5),
+			default: darken(indigo[900], 0.5),
+			paper: grey[900]
 		},
-		focusBorder: CommonFocusStyle,
+		focus: CommonFocusStyle,
 		primary: {
-			main: indigo[500]
+			main: Palette.primary
 		},
 		secondary: {
-			main: lightBlue[300]
+			main: Palette.secondary
 		}
 	},
 	typography: {
 		fontFamily: [
-			'Montserrat',
-			'Helvetica Neue',
-			'\'sans-serif\''
-		].join(',')
+			'Roboto',
+			'\'Helvetica Neue\'',
+			'sans-serif'
+		].join(','),
+		h1: { fontSize: '3rem' },
+		h2: { fontSize: '2rem' },
+		h3: { fontSize: '1.75rem' },
+		h4: { fontSize: '1.5rem' }
 	},
 	shape: {
-		borderRadius: 10
+		borderRadius: 0
 	},
 	overrides: {
 		MuiCssBaseline: {
 			'@global': {
 				body: {
-					// backgroundImage: images[0]
+					'& code': {
+						color: Palette.primary,
+						fontWeight: 600
+					},
 				},
-				':focus': DisableFocusStyle
+				':focus': DisableBrowserFocusStyle
 			}
 		},
 		MuiButtonBase: {
@@ -58,6 +71,11 @@ export const MyTheme = createMuiTheme({
 				'&:hover': {
 					textDecorationThickness: '5px',
 				}
+			}
+		},
+		MuiCard: {
+			root: {
+				backgroundColor: 'transparent'
 			}
 		}
 	},
