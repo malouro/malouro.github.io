@@ -6,7 +6,7 @@ import { MyTheme } from '../root/Theme'
 import { ProjectCard } from '../components'
 import { Projects } from '../data'
 
-export default function ProjectsPage() {
+export default function ProjectsPage(): JSX.Element {
 	const useStyles = makeStyles((theme: typeof MyTheme) => ({
 		pageTitle: {
 			marginBottom: theme.spacing(5)

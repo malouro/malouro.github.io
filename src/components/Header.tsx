@@ -6,10 +6,18 @@ import {
 	IconButton,
 	Menu,
 	MenuItem,
+	Link,
 	Toolbar,
 } from '@material-ui/core'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
-import { Menu as MenuIcon, HomeOutlined as HomeIcon } from '@material-ui/icons'
+import {
+	Menu as MenuIcon,
+	HomeOutlined as HomeIcon,
+	Info as AboutIcon,
+	Brush as ArtIcon,
+	Build as ProjectIcon,
+	QuestionAnswer as BlogIcon
+} from '@material-ui/icons'
 
 const HeaderStyles = makeStyles((theme: Theme) => ({
 	container: {
@@ -27,15 +35,22 @@ const HeaderStyles = makeStyles((theme: Theme) => ({
 		width: '100%',
 		height: '100%',
 		backgroundImage:
-			`linear-gradient(${darken(theme.palette.secondary.dark, 0.5)}, ${theme.palette.background.default})`
+			`linear-gradient(${
+				darken(theme.palette.secondary.dark, 0.5)
+			}, ${
+				theme.palette.background.default
+			})`
 	},
 	gutter: {
 		flexGrow: 1
 	},
-	menuButton: { }
+	menuButton: { },
+	optionButton: {
+		marginLeft: theme.spacing(2)
+	}
 }))
 
-export const Header = () => {
+export default function Header (): JSX.Element {
 	const theme = useTheme()
 	const classes = HeaderStyles()
 	const [anchorEl, setAnchorEl] = React.useState<Element|null>(null)
@@ -43,7 +58,12 @@ export const Header = () => {
 	const handleClick = (event: any) => { setAnchorEl(event.currentTarget) }
 	const handleClose = () => { setAnchorEl(null) }
 
-	const menuOptions = ['About', 'Projects', 'Art', 'Blog']
+	const menuOptions = [
+		{ title: 'About', icon: AboutIcon },
+		{ title: 'Projects', icon: ProjectIcon },
+		{ title: 'Art', icon: ArtIcon },
+		{ title: 'Blog', icon: BlogIcon }
+	]
 
 	return (
 		<header className={classes.container}>
@@ -71,26 +91,37 @@ export const Header = () => {
 							>
 								<MenuIcon />
 							</IconButton>
-							<Menu open={Boolean(anchorEl)} anchorEl={anchorEl} onClose={handleClose}>
-								{menuOptions.map(option => (
-									<MenuItem key={`MenuOption-${option}`} button onClick={handleClose}>
-										{option}
+							<Menu
+								anchorEl={anchorEl}
+								keepMounted
+								open={Boolean(anchorEl)}
+								onClose={handleClose}
+							>
+								{[...menuOptions.map(({ title }, index) => (
+									<MenuItem
+										key={`option-${index}`}
+										onClick={handleClose}
+										button
+									>
+										<Link href={`/${title.toLocaleLowerCase()}`}>{title}</Link>
 									</MenuItem>
-								))}
+								))]}
 							</Menu>
 						</>
 					) : (
 						// Desktop view
 						<>
-							{menuOptions.map(option => (
+							{[...menuOptions.map(({ title, icon: OptionIcon }, index) => (
 								<Button
-									key={`MenuOption-${option}`}
+									key={`option-${index}`}
+									className={classes.optionButton}
 									color="inherit"
-									href={`/${option.toLocaleLowerCase()}`}
+									href={`/${title.toLocaleLowerCase()}`}
+									startIcon={<OptionIcon />}
 								>
-									{option}
+									{title}
 								</Button>
-							))}
+							))]}
 						</>
 					)}
 				</Toolbar>

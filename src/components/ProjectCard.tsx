@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Card, CardContent, CardHeader, CardMedia, Typography } from '@material-ui/core'
+import { Card, CardContent, CardHeader, CardMedia, CardActions, Button, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import { MyTheme } from '../root/Theme'
 
@@ -59,7 +59,7 @@ const ProjectCardStyles = (theme: typeof MyTheme) => ({
 
 const ProjectCard: React.FC<ProjectCardProps> = (props: ProjectCardProps): JSX.Element => {
 	const { classes, data, ...other } = props
-	const { title, subtitle, description, thumbnail } = data
+	const { title, subtitle, description, thumbnail, links } = data
 
 	delete other.outlineThickness
 
@@ -71,6 +71,17 @@ const ProjectCard: React.FC<ProjectCardProps> = (props: ProjectCardProps): JSX.E
 				<CardContent>
 					<Typography>{description}</Typography>
 				</CardContent>
+				<CardActions>
+					{links.length > 0 && links.map((link, index) => {
+						return <Button
+							key={`project-card-link-${index}`}
+							size="small"
+							variant="outlined"
+							color="primary"
+							href={link.url}
+						>{link.type}</Button>
+					})}
+				</CardActions>
 			</div>
 		</Card>
 	)

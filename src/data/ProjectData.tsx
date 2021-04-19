@@ -17,11 +17,38 @@ const Projects: ReadonlyArray<ProjectData> = [
 				</ul>
 			</Typography>
 		</>,
-		thumbnail: 'https://camo.githubusercontent.com/d9e122702811c8fe400d0f96052a588d7457136f6dc998824ab1953defd07073/68747470733a2f2f73746172646577636f6d6d756e69747977696b692e636f6d2f6d6564696177696b692f696d616765732f332f33642f47756e746865722e706e67'
+		thumbnail: `${process.env.PUBLIC_URL}/assets/projects/GuntherBot.webp`,
+		links: [
+			{ url: 'https://github.com/malouro/gunther-bot', type: 'github' }
+		]
 	},
 	{
-		title: 'Project B',
-		description: 'This is another project. Maybe not as cool. :('
+		title: 'Ggis Bot',
+		description: <>
+			<Typography variant="body1">
+				<code>ggis-bot</code> is a general-purpose <Link href="http://discord.com/">Discord</Link> chat bot. By cloning and running
+				the a single command, (<code>yarn setup</code> or <code>npm run setup</code>) you&apos;ll have a bot connected to your server with
+				the following features and commands:
+				<ul>
+					<li>
+						<strong>LFG</strong>: Look for people to play games with via <code>!lfg</code>
+					</li>
+					<li>
+						<strong>StreamLink</strong>: Announce to your server when you go live on Twitch via <code>!streamlink</code>
+					</li>
+					<li>
+						<strong>AutoReact</strong>: Configurable automation of reactions/replies to users or key words being mentioned.
+					</li>
+					<li>
+						Fun and random stuff, like: opening fortune cookies, fetching random Reddit posts & more
+					</li>
+				</ul>
+			</Typography>
+		</>,
+		thumbnail: `${process.env.PUBLIC_URL}/assets/projects/GgisBot.png`,
+		links: [
+			{ url: 'https://github.com/malouro/ggis-bot', type: 'github' }
+		]
 	}
 ]
 

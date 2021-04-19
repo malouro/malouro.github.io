@@ -38,7 +38,11 @@ export const MyTheme = createMuiTheme({
 			'Roboto',
 			'\'Helvetica Neue\'',
 			'sans-serif'
-		].join(',')
+		].join(','),
+		h1: { fontSize: '3rem' },
+		h2: { fontSize: '2rem' },
+		h3: { fontSize: '1.75rem' },
+		h4: { fontSize: '1.5rem' }
 	},
 	shape: {
 		borderRadius: 0

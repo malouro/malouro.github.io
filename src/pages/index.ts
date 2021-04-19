@@ -1,5 +1,5 @@
 
+import Home from './Home'
 import Projects from './Projects'
 
-export { Home } from './Home'
-export { Projects }
+export { Home, Projects }
