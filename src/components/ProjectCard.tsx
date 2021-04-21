@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import { Card, CardContent, CardHeader, CardMedia, CardActions, Button, Typography } from '@material-ui/core'
+import { Chat as ChatIcon, GitHub as GitHubIcon } from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles'
 import { MyTheme } from '../root/Theme'
 
@@ -31,8 +32,17 @@ const ProjectCardStyles = (theme: typeof MyTheme) => ({
 		minWidth: theme.spacing(40),
 		marginBottom: theme.spacing(4),
 		display: 'flex',
-		boxShadow: (props: ProjectCardProps) =>
-			`inset -${props.outlineThickness}px 0 ${theme.palette.primary.main}`
+		transition: 'none',
+		// Desktop/Tablet?
+		[theme.breakpoints.up('md')]: {
+			boxShadow: (props: ProjectCardProps) =>
+				`inset -${props.outlineThickness}px 0 ${theme.palette.primary.main}`
+		},
+		// Mobile
+		[theme.breakpoints.down('sm')]: {
+			boxShadow: (props: ProjectCardProps) =>
+				`inset 0 -${props.outlineThickness}px ${theme.palette.primary.main}`
+		}
 	},
 	thumbnail: {
 		[theme.breakpoints.down('sm')]: {
@@ -53,9 +63,19 @@ const ProjectCardStyles = (theme: typeof MyTheme) => ({
 		})`
 	},
 	content: {
-		marginLeft: theme.spacing(2)
+		[theme.breakpoints.down('sm')]: {
+			marginBottom: theme.spacing(4)
+		},
+		[theme.breakpoints.up('md')]: {
+			marginRight: theme.spacing(4)
+		},
 	}
 })
+
+const projectLinkIcons = {
+	github: <GitHubIcon />,
+	blog: <ChatIcon />
+}
 
 const ProjectCard: React.FC<ProjectCardProps> = (props: ProjectCardProps): JSX.Element => {
 	const { classes, data, ...other } = props
@@ -78,6 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = (props: ProjectCardProps): JSX.E
 							size="small"
 							variant="outlined"
 							color="primary"
+							startIcon={projectLinkIcons[link.type] || null}
 							href={link.url}
 						>{link.type}</Button>
 					})}

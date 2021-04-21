@@ -9,7 +9,6 @@ import { Home, Projects } from '../pages'
 const MainContentStyles = makeStyles((theme: Theme) => ({
 	container: {
 		backgroundColor: 'transparent',
-		outline: `2px dotted ${theme.palette.primary.main}`,
 		width: '100%',
 		position: 'relative',
 		marginTop: theme.spacing(-4),

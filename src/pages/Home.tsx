@@ -3,8 +3,9 @@ import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
 import { makeStyles } from '@material-ui/core/styles'
-import { Avatar, useTheme } from '@material-ui/core'
+import { Avatar, Box, useTheme } from '@material-ui/core'
 import { MyTheme } from '../root/Theme'
+import { Email as EmailIcon, GitHub as GitHubIcon, LinkedIn as LinkedIcon } from '@material-ui/icons'
 
 export const HomeStyles = makeStyles((theme: typeof MyTheme) => ({
 	container: {
@@ -20,6 +21,18 @@ export const HomeStyles = makeStyles((theme: typeof MyTheme) => ({
 		textAlign: 'center',
 		margin: 'auto',
 		marginBottom: theme.spacing(5)
+	},
+	contactList: {
+		listStyleType: 'none',
+		paddingInlineStart: 0,
+	},
+	contactListItem: {
+		verticalAlign: 'middle',
+		marginBottom: theme.spacing(0.5),
+		'&>a>svg': {
+			marginRight: theme.spacing(1),
+			verticalAlign: 'bottom'
+		}
 	}
 }))
 
@@ -32,28 +45,42 @@ export default function Home(): JSX.Element {
 	return (
 		<div className={classes.container}>
 			<Avatar className={classes.avatar} src={avatarUrl} />
-			{/* <Typography variant="h1" className={classes.title}>
-				Mike A. Louro
-			</Typography> */}
 
-			<Typography variant="body1">
+			<Typography variant="h1" className={classes.title}>
+				Mike A. Louro
+			</Typography>
+
+			{/* <Typography variant="body1" component="div">
 				<p>Hey there! Welcome to my website.</p>
 				<p>This is still a work-in-progress, so please don&apos;t mind the mess as I tidy up.</p>
 				<p>Thanks for stopping by. <span role="img" aria-label="smiley face">🙂</span></p>
-			</Typography>
+			</Typography> */}
 
-
-			<figure style={{ marginTop: spacing(8) }}>
-				<Typography component="figcaption" variant="body2">Points of Contact:</Typography>
-				<ul>
-					<li>
-						<Link href="https://www.linkedin.com/in/michael-louro-4b2185149/">LinkedIn</Link>
+			<Box
+				component="figure"
+				style={{ marginTop: spacing(8) }}
+			>
+				<Typography component="figcaption" variant="srOnly">
+					You can contact me at:
+				</Typography>
+				<ul className={classes.contactList}>
+					<li className={classes.contactListItem}>
+						<Link href="mailto:mike.a.louro@gmail.com">
+							<EmailIcon />mike.a.louro@gmail.com
+						</Link>
 					</li>
-					<li>
-						<Link href="http://github.com/malouro">GitHub</Link>
+					<li className={classes.contactListItem}>
+						<Link href="https://www.linkedin.com/in/michael-louro-4b2185149/">
+							<LinkedIcon />LinkedIn
+						</Link>
+					</li>
+					<li className={classes.contactListItem}>
+						<Link href="http://github.com/malouro">
+							<GitHubIcon aria-label="GitHub link" />github.com/malouro
+						</Link>
 					</li>
 				</ul>
-			</figure>
+			</Box>
 
 		</div>
 	)

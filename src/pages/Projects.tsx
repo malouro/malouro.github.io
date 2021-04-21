@@ -9,6 +9,7 @@ import { Projects } from '../data'
 export default function ProjectsPage(): JSX.Element {
 	const useStyles = makeStyles((theme: typeof MyTheme) => ({
 		pageTitle: {
+			textAlign: 'center',
 			marginBottom: theme.spacing(5)
 		}
 	}))

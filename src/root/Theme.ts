@@ -22,7 +22,7 @@ export const MyTheme = createMuiTheme({
 		/** @ref https://www.w3.org/TR/WCAG21/#contrast-minimum */
 		contrastThreshold: 4.5,
 		background: {
-			default: darken(indigo[900], 0.5),
+			default: darken(indigo[900],0.8),
 			paper: grey[900]
 		},
 		focus: CommonFocusStyle,

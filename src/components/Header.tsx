@@ -22,7 +22,7 @@ import {
 const HeaderStyles = makeStyles((theme: Theme) => ({
 	container: {
 		position: 'relative',
-		height: theme.spacing(20),
+		height: theme.spacing(15),
 		overflow: 'hidden',
 		color: theme.palette.getContrastText(theme.palette.secondary.dark)
 	},
@@ -44,7 +44,7 @@ const HeaderStyles = makeStyles((theme: Theme) => ({
 	gutter: {
 		flexGrow: 1
 	},
-	menuButton: { },
+	menuButton: {},
 	optionButton: {
 		marginLeft: theme.spacing(2)
 	}

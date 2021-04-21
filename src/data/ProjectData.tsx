@@ -4,31 +4,11 @@ import { ProjectData } from '../components/ProjectCard'
 
 const Projects: ReadonlyArray<ProjectData> = [
 	{
-		title: 'Gunther Bot',
-		description: <>
-			<Typography variant="body1">
-				<code>gunther-bot</code> is a <Link href="http://discord.com/">Discord</Link> chat bot that is able to parse
-				questions about <Link href="http://stardewvalley.net">Stardew Valley</Link>, sent by the user, and reply back
-				with responses. The scope of the questions that <code>gunther-bot</code> is able to answer is limited to the following:
-				<ul>
-					<li>Characters & villagers</li>
-					<li>Calendar events</li>
-					<li>Items & resources</li>
-				</ul>
-			</Typography>
-		</>,
-		thumbnail: `${process.env.PUBLIC_URL}/assets/projects/GuntherBot.webp`,
-		links: [
-			{ url: 'https://github.com/malouro/gunther-bot', type: 'github' }
-		]
-	},
-	{
 		title: 'Ggis Bot',
 		description: <>
 			<Typography variant="body1">
-				<code>ggis-bot</code> is a general-purpose <Link href="http://discord.com/">Discord</Link> chat bot. By cloning and running
-				the a single command, (<code>yarn setup</code> or <code>npm run setup</code>) you&apos;ll have a bot connected to your server with
-				the following features and commands:
+				<code>ggis-bot</code> is a general-purpose <Link href="http://discord.com/">Discord</Link> chat bot written in NodeJS.
+				By cloning the project and running a single command, you&apos;ll have a bot connected to your server with the following features and commands:
 				<ul>
 					<li>
 						<strong>LFG</strong>: Look for people to play games with via <code>!lfg</code>
@@ -44,12 +24,52 @@ const Projects: ReadonlyArray<ProjectData> = [
 					</li>
 				</ul>
 			</Typography>
+			<Typography>
+				<strong>Quick Startup Guide:</strong>
+				<ol>
+					<li>
+						Clone the project via git and run <code>yarn setup</code> or <code>npm run setup</code>
+					</li>
+					<li>
+						Answer the prompts with the information requested. Make sure you have a <Link
+							href="https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token">
+							Discord application & bot token
+						</Link> at the ready.
+					</li>
+					<li>
+						Run <code>yarn start</code> or <code>npm run start</code>, and watch your bot go online!
+					</li>
+				</ol>
+			</Typography>
+			<Typography variant="caption">
+				Check the <Link href="https://github.com/malouro/ggis-bot/blob/master/README.md">README</Link>{' '}
+				for more detailed instructions & documentation.
+			</Typography>
 		</>,
 		thumbnail: `${process.env.PUBLIC_URL}/assets/projects/GgisBot.png`,
 		links: [
 			{ url: 'https://github.com/malouro/ggis-bot', type: 'github' }
 		]
-	}
+	},
+	{
+		title: 'Gunther Bot',
+		description: <>
+			<Typography variant="body1">
+				<code>gunther-bot</code> is a <Link href="http://discord.com/">Discord</Link> chat bot that is able to answer
+				questions about <Link href="http://stardewvalley.net">Stardew Valley</Link>. With data extrapolated from the
+				<Link href="https://stardewvalleywiki.com/">Stardew Valley Wiki</Link>, it can help you with anything regarding
+				the following:
+				<ul>
+					<li>Characters & villagers</li>
+					<li>Calendar events</li>
+				</ul>
+			</Typography>
+		</>,
+		thumbnail: `${process.env.PUBLIC_URL}/assets/projects/GuntherBot.webp`,
+		links: [
+			{ url: 'https://github.com/malouro/gunther-bot', type: 'github' }
+		]
+	},
 ]
 
 export default Projects
