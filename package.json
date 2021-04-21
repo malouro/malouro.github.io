@@ -18,6 +18,9 @@
 		"react-scripts": "3.4.1",
 		"typescript": "^3.7.2"
 	},
+	"resolutions": {
+		"ssri": "^8.0.1"
+	},
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "react-scripts build",
@@ -42,6 +45,7 @@
 		]
 	},
 	"devDependencies": {
+		"@testing-library/dom": "^7.30.3",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.3.2",
 		"@testing-library/user-event": "^7.1.2",
