@@ -55,13 +55,22 @@ const Projects: ReadonlyArray<ProjectData> = [
 		title: 'Gunther Bot',
 		description: <>
 			<Typography variant="body1">
-				<code>gunther-bot</code> is a <Link href="http://discord.com/">Discord</Link> chat bot that is able to answer
-				questions about <Link href="http://stardewvalley.net">Stardew Valley</Link>. With data extrapolated from the
-				<Link href="https://stardewvalleywiki.com/">Stardew Valley Wiki</Link>, it can help you with anything regarding
-				the following:
+				<code>gunther-bot</code> is a <Link href="http://discord.com/">Discord</Link> chat bot, written NodeJS and TypeScript,
+				that is able to answer your questions regarding <Link href="http://stardewvalley.net">Stardew Valley</Link>.
+				With data extrapolated from the <Link href="https://stardewvalleywiki.com/">Stardew Valley Wiki</Link>, it can help
+				you with...
 				<ul>
-					<li>Characters & villagers</li>
-					<li>Calendar events</li>
+					<li><strong>Characters & villagers</strong>
+						<ul>
+							<li>Displays birthdays and favorite gifts</li>
+						</ul>
+					</li>
+					<li><strong>Calendar</strong>
+						<ul>
+							<li>View a whole season&apos;s calendar</li>
+							<li>Get upcoming events</li>
+						</ul>
+					</li>
 				</ul>
 			</Typography>
 		</>,
