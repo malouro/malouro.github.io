@@ -1,8 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-
 import { Header, MainContent, SkipLink } from '../components'
 import { MyTheme } from './Theme'
 
@@ -11,10 +9,10 @@ function App() {
 		<ThemeProvider theme={MyTheme}>
 			<CssBaseline />
 			<SkipLink />
-			<Header />
-			<Router>
+			<div>
+				<Header />
 				<MainContent id="main" tabIndex={-1} />
-			</Router>
+			</div>
 		</ThemeProvider>
 	)
 }
