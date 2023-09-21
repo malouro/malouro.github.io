@@ -35,7 +35,7 @@ export const MyTheme = createMuiTheme({
 	},
 	typography: {
 		fontFamily: [
-			'Roboto',
+			'Oxygen',
 			'\'Helvetica Neue\'',
 			'sans-serif'
 		].join(','),
@@ -52,6 +52,7 @@ export const MyTheme = createMuiTheme({
 			'@global': {
 				body: {
 					'& code': {
+						fontFamily: 'Consolas',
 						color: Palette.primary,
 						fontWeight: 600
 					},

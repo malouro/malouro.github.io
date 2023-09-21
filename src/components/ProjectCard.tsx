@@ -1,8 +1,8 @@
 import React, { ReactElement } from 'react'
-import { Card, CardContent, CardHeader, CardMedia, CardActions, Button, Typography } from '@material-ui/core'
+import { Card, CardContent, CardHeader, CardMedia, CardActions, Button, Typography, Hidden } from '@material-ui/core'
 import { Chat as ChatIcon, GitHub as GitHubIcon } from '@material-ui/icons'
 import { withStyles } from '@material-ui/core/styles'
-import { MyTheme } from '../root/Theme'
+import { MyTheme } from '../theme'
 
 export interface ProjectLink {
 	url: string,
@@ -45,22 +45,28 @@ const ProjectCardStyles = (theme: typeof MyTheme) => ({
 		}
 	},
 	thumbnail: {
-		[theme.breakpoints.down('sm')]: {
-			height: theme.spacing(20),
-			paddingLeft: theme.spacing(20),
-		},
+		margin: theme.spacing(4),
 		[theme.breakpoints.up('md')]: {
 			height: theme.spacing(40),
 			paddingLeft: theme.spacing(40),
 		},
-		margin: theme.spacing(4),
-		filter: `drop-shadow(${
-			theme.spacing(1)
-		}px ${
-			theme.spacing(1)
-		}px 3px ${
-			theme.palette.common.black
-		})`
+		[theme.breakpoints.down('sm')]: {
+			height: theme.spacing(20),
+			paddingLeft: theme.spacing(20),
+		},
+		[theme.breakpoints.down('xs')]: {
+			width: '100%',
+			height: theme.spacing(10),
+			margin: 'auto',
+			// paddingLeft: theme.spacing(20),
+		},
+		// filter: `drop-shadow(${
+		// 	theme.spacing(1)
+		// }px ${
+		// 	theme.spacing(1)
+		// }px 3px ${
+		// 	theme.palette.common.black
+		// })`
 	},
 	content: {
 		[theme.breakpoints.down('sm')]: {
@@ -83,10 +89,13 @@ const ProjectCard: React.FC<ProjectCardProps> = (props: ProjectCardProps): JSX.E
 
 	delete other.outlineThickness
 
+	const renderThumbnail = () => <>{thumbnail && <CardMedia className={classes.thumbnail} image={thumbnail} />}</>
+
 	return (
 		<Card className={classes.root} {...other}>
-			{thumbnail && <CardMedia className={classes.thumbnail} image={thumbnail} />}
+			<Hidden xsDown>{renderThumbnail()}</Hidden>
 			<div className={classes.content}>
+				<Hidden smUp>{renderThumbnail()}</Hidden>
 				<CardHeader title={title} subheader={subtitle} titleTypographyProps={{ variant: 'h2' }} />
 				<CardContent>
 					<Typography>{description}</Typography>

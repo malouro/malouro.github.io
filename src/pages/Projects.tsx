@@ -2,7 +2,7 @@ import React from 'react'
 import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { MyTheme } from '../root/Theme'
+import { MyTheme } from '../theme'
 import { ProjectCard } from '../components'
 import { Projects } from '../data'
 

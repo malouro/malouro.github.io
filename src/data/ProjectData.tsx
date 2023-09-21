@@ -67,8 +67,9 @@ const Projects: ReadonlyArray<ProjectData> = [
 					</li>
 					<li><strong>Calendar</strong>
 						<ul>
-							<li>View a whole season&apos;s calendar</li>
+							<li>View the season calendars</li>
 							<li>Get upcoming events</li>
+							<li>See upcoming birthdays</li>
 						</ul>
 					</li>
 				</ul>

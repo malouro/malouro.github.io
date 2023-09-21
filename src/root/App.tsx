@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 import { Header, MainContent, SkipLink } from '../components'
-import { MyTheme } from './Theme'
+import { MyTheme } from '../theme'
 
 function App() {
 	return (

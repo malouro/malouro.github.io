@@ -1,4 +1,8 @@
 {
+	"include": [
+		"src/**/*.ts",
+		"src/**/*.tsx"
+	],
 	"compilerOptions": {
 		"target": "es5",
 		"lib": [
@@ -6,6 +10,7 @@
 			"dom.iterable",
 			"esnext"
 		],
+		"types": ["cypress"],
 		"typeRoots": [
 			"node_modules/@types",
 			"@material-ui/types",
@@ -25,8 +30,5 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react"
-	},
-	"include": [
-		"src"
-	]
+	}
 }
